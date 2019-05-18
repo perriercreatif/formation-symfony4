@@ -19,15 +19,16 @@ class AdType extends AbstractType
      * Permet d'avoir la configuration de base d'un champ !
      * @param string $label
      * @param string $placeholder
+     * @param array $option
      * @return array
      */
-    public function getConfiguration($label, $placeholder){
-        return [
+    private function getConfiguration($label, $placeholder, $option = []){
+        return array_merge([
             'label' => $label,
             'attr' => [
                 'placeholder' => $placeholder
             ]
-        ];
+        ], $option);
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -41,7 +42,9 @@ class AdType extends AbstractType
             ->add(
                 'slug',
                 TextType::class,
-                $this->getConfiguration("Chaine URL", "Adresse web (Automatique)")
+                $this->getConfiguration("Chaine URL", "Adresse web (Automatique)", [
+                    'required' => false
+                ])
             )
             ->add(
                 'coverImage',
