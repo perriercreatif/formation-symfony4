@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 
+use App\Entity\PasswordUpdate;
 use App\Entity\User;
 use App\Form\AccountType;
+use App\Form\PasswordUpdateType;
 use App\Form\RegistrationType;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -112,6 +114,10 @@ class AccountController extends AbstractController{
      * @return Response
      */
     public function updatePassword(){
-        return $this->render('account/password.html.twig');
+        $passwordUpdate = new PasswordUpdate();
+        $form = $this->createForm(PasswordUpdateType::class, $passwordUpdate);
+        return $this->render('account/password.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 }
