@@ -18,8 +18,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     message="Une autre annonces possède déjà ce titre, merci de le modifier"
  * )
  */
-class Ad
-{
+class Ad{
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -89,8 +88,7 @@ class Ad
      */
     private $author;
 
-    public function __construct()
-    {
+    public function __construct(){
         $this->images = new ArrayCollection();
     }
 
@@ -108,90 +106,75 @@ class Ad
         }
     }
 
-    public function getId(): ?int
-    {
+    public function getId(): ?int{
         return $this->id;
     }
 
-    public function getTitle(): ?string
-    {
+    public function getTitle(): ?string{
         return $this->title;
     }
 
-    public function setTitle(string $title): self
-    {
+    public function setTitle(string $title): self{
         $this->title = $title;
 
         return $this;
     }
 
-    public function getSlug(): ?string
-    {
+    public function getSlug(): ?string{
         return $this->slug;
     }
 
-    public function setSlug(string $slug): self
-    {
+    public function setSlug(string $slug): self{
         $this->slug = $slug;
 
         return $this;
     }
 
-    public function getPrice(): ?float
-    {
+    public function getPrice(): ?float{
         return $this->price;
     }
 
-    public function setPrice(float $price): self
-    {
+    public function setPrice(float $price): self{
         $this->price = $price;
 
         return $this;
     }
 
-    public function getIntroduction(): ?string
-    {
+    public function getIntroduction(): ?string{
         return $this->introduction;
     }
 
-    public function setIntroduction(string $introduction): self
-    {
+    public function setIntroduction(string $introduction): self{
         $this->introduction = $introduction;
 
         return $this;
     }
 
-    public function getContent(): ?string
-    {
+    public function getContent(): ?string{
         return $this->content;
     }
 
-    public function setContent(string $content): self
-    {
+    public function setContent(string $content): self{
         $this->content = $content;
 
         return $this;
     }
 
-    public function getCoverImage(): ?string
-    {
+    public function getCoverImage(): ?string{
         return $this->coverImage;
     }
 
-    public function setCoverImage(string $coverImage): self
-    {
+    public function setCoverImage(string $coverImage): self{
         $this->coverImage = $coverImage;
 
         return $this;
     }
 
-    public function getRooms(): ?int
-    {
+    public function getRooms(): ?int{
         return $this->rooms;
     }
 
-    public function setRooms(int $rooms): self
-    {
+    public function setRooms(int $rooms): self{
         $this->rooms = $rooms;
 
         return $this;
@@ -200,13 +183,11 @@ class Ad
     /**
      * @return Collection|Image[]
      */
-    public function getImages(): Collection
-    {
+    public function getImages(): Collection{
         return $this->images;
     }
 
-    public function addImage(Image $image): self
-    {
+    public function addImage(Image $image): self{
         if (!$this->images->contains($image)) {
             $this->images[] = $image;
             $image->setAd($this);
@@ -215,8 +196,7 @@ class Ad
         return $this;
     }
 
-    public function removeImage(Image $image): self
-    {
+    public function removeImage(Image $image): self{
         if ($this->images->contains($image)) {
             $this->images->removeElement($image);
             // set the owning side to null (unless already changed)
@@ -228,13 +208,11 @@ class Ad
         return $this;
     }
 
-    public function getAuthor(): ?User
-    {
+    public function getAuthor(): ?User{
         return $this->author;
     }
 
-    public function setAuthor(?User $author): self
-    {
+    public function setAuthor(?User $author): self{
         $this->author = $author;
 
         return $this;

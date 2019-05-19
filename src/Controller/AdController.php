@@ -12,13 +12,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AdController extends AbstractController
-{
+class AdController extends AbstractController{
     /**
      * @Route("/ads", name="ads_index")
      */
-    public function index(AdRepository $repo)
-    {
+    public function index(AdRepository $repo){
         $ads = $repo->findAll();
         return $this->render('ad/index.html.twig', [
             'ads' => $ads

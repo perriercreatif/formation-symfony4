@@ -8,8 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ImageRepository")
  */
-class Image
-{
+class Image{
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -38,42 +37,35 @@ class Image
      */
     private $ad;
 
-    public function getId(): ?int
-    {
+    public function getId(): ?int{
         return $this->id;
     }
 
-    public function getUrl(): ?string
-    {
+    public function getUrl(): ?string{
         return $this->url;
     }
 
-    public function setUrl(string $url): self
-    {
+    public function setUrl(string $url): self{
         $this->url = $url;
 
         return $this;
     }
 
-    public function getCaption(): ?string
-    {
+    public function getCaption(): ?string{
         return $this->caption;
     }
 
-    public function setCaption(string $caption): self
-    {
+    public function setCaption(string $caption): self{
         $this->caption = $caption;
 
         return $this;
     }
 
-    public function getAd(): ?Ad
-    {
+    public function getAd(): ?Ad{
         return $this->ad;
     }
 
-    public function setAd(?Ad $ad): self
-    {
+    public function setAd(?Ad $ad): self{
         $this->ad = $ad;
 
         return $this;
