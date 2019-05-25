@@ -106,7 +106,7 @@ class User implements UserInterface{
     public function initializeSlug(){
         if (empty($this->slug)){
             $slugify = new Slugify();
-            $this->slug = $slugify->slugify($this->firstName.''.$this->lastName);
+            $this->slug = $slugify->slugify($this->firstName, $this->lastName);
         }
     }
 
