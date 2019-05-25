@@ -88,6 +88,10 @@ class User implements UserInterface{
      */
     private $ads;
 
+    public function getFullName(){
+        return "{$this->firstName} {$this->lastName}";
+    }
+
     public function __construct(){
         $this->ads = new ArrayCollection();
     }
