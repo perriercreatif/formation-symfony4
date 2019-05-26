@@ -9,9 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/user/{slug]", name="user_show")
-     * @param User $user
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/user/{slug}", name="user_show")
      */
     public function index(User $user)
     {
