@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Ad;
 use App\Entity\Image;
-use App\Form\AdType;
+use App\Form\AnnonceType;
 use App\Repository\AdRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Psr\Container\ContainerInterface;
@@ -35,7 +35,7 @@ class AdController extends AbstractController{
     public function create(Request $request, ObjectManager $manager){
         $ad = new Ad();
 
-        $form = $this->createForm(AdType::class, $ad);
+        $form = $this->createForm(AnnonceType::class, $ad);
 
         $form->handleRequest($request);
 
@@ -73,7 +73,7 @@ class AdController extends AbstractController{
      * @return Response
      */
     public function edit(Ad $ad, Request $request, ObjectManager $manager){
-        $form = $this->createForm(AdType::class, $ad);
+        $form = $this->createForm(AnnonceType::class, $ad);
 
         $form->handleRequest($request);
 
