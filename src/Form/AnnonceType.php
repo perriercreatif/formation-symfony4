@@ -52,7 +52,7 @@ class AnnonceType extends ApplicationType{
             ->add(
                 'price',
                 MoneyType::class,
-                $this->getConfiguration("Prix pour une nuit", "Indiquer le prix pour une nuit")
+                $this->getConfiguration("Prix pour une nuit", "Prix par nuit")
             )
             ->add(
                 'images',

@@ -3,7 +3,7 @@ div.container{
 }
 
 .alert-light{
-    background-color: rgba(0,0,0,0.1);
+    background-color:#F6F6FF;
 }
 
 div.ad-title{
@@ -15,6 +15,12 @@ div.ad-title{
 div.ad-title h1, div.ad-title{
     color:white;
     text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+}
+
+div.ad-title .btn{
+    margin-top: 2em;
+    font-size: 1.5em;
+    line-height: 1.5em;
 }
 
 div.carousel-caption{
@@ -37,10 +43,19 @@ div.carousel-caption{
     max-height: 24px;
 }
 
+.avatar-micro{
+    max-width: 20px;
+    max-height: 20px;
+}
+
 .btn{
     border-radius: 25px;
 }
 
 .datepicker table tr td.disabled, .datepicker table tr td.disabled:hover{
     color:firebrick !important;
+}
+
+span.rating i{
+    color:#E5B519;
 }

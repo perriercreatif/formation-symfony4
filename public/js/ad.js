@@ -1,7 +1,7 @@
 $('#add-image').click(function(){
     const index = +$('#widgets-counter').val();
-    const tmpl = $('#ad_images').data('prototype').replace(/_name_/g, index);
-    $('#ad_images').append(tmpl);
+    const tmpl = $('#annonce_images').data('prototype').replace(/_name_/g, index);
+    $('#annonce_images').append(tmpl);
 
     $('#widgets-counter').val(index + 1);
 
