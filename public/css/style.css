@@ -1,4 +1,4 @@
-div.container{
+div.container, div.container-fluid{
     margin-top: 20px;
 }
 
@@ -58,4 +58,8 @@ div.carousel-caption{
 
 span.rating i{
     color:#E5B519;
+}
+
+.table-hover tbody tr:hover{
+    color:black;
 }
