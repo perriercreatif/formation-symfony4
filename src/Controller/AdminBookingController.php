@@ -33,13 +33,16 @@ class AdminBookingController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $booking->setAmount(0);
             $manager->persist($booking);
             $manager->flush();
 
             $this->addFlash(
                 'success',
-                "Le commentaires <strong>{$booking->getId()}</strong> a bien été enregistrées !"
+                "La réservation n°<strong>{$booking->getId()}</strong> a bien été enregistrées !"
             );
+
+            return $this->redirectToRoute("admin_booking_index");
         }
         return $this->render('admin/booking/edit.html.twig', [
             'form' => $form->createView(),
