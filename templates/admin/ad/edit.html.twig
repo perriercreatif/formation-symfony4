@@ -3,38 +3,24 @@
 {% block title %}Edition d'une annonce{% endblock %}
 {% form_theme form _self %}
 {% block body %}
-    <div class="container">
+    <div class="container-fluid">
         <h1 class="my-5">Modifier l'annonce : <br>{{ ad.title }}</h1>
         <h2 class="my-3">Corriger l'annonce ?</h2>
         {{ form_start(form) }}
 
         <div class="row">
             <div class="col">
-                <div class="card">
-                    <h2>Information générales</h2>
-                    <hr>
-                    {{ form_row(form.title) }}
-                    {{ form_row(form.slug) }}
-                    <div class="row">
-                        <div class="col-4">
-                            {{ form_row(form.price) }}
-                        </div>
-                        <div class="col-8">
-                            {{ form_row(form.rooms) }}
-                        </div>
+                <div class="card bg-light">
+                    <div class="card-header">
+                        <h4 class="card-title">Corriger l'annonce ?</h4>
                     </div>
-                </div>
-                <div class="alert alert-light">
-                    <h2>Détails de l'annonce</h2>
-                    <hr>
-                    {{ form_row(form.introduction) }}
-                    {{ form_row(form.content) }}
-                </div>
-                <div class="alert alert-light">
-                    <h2>Images de l'annonce</h2>
-                    <hr>
-                    {{ form_row(form.coverImage) }}
-                    {{ form_row(form.images) }}
+                    <div class="card-body">
+                        {{ form_widget(form) }}
+                        <button type="submit" class="btn btn-primary float-right">
+                            <i class="fas fa-save"></i>
+                            Enregistrer les modifications
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="col">
@@ -92,9 +78,8 @@
                                     <th>{{ comment.rating }}</th>
                                     <th>{{ comment.content }}</th>
                                     <th>
-                                        <a href="#" class="btn btn-primary">
-                                            <i class="fas fa-pen"></i>
-                                        </a>
+                                        <a href="{{ path('admin_comment_edit', {'id': comment.id}) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ path('admin_comment_delete', {'id': comment.id}) }}" class="btn btn-danger" onclick="return confirm(`Etes vous sur de vouloir supprimer le commentaire : {{ comment.author.fullName }} ?`)"><i class="fas fa-trash"></i></a>
                                     </th>
                                 </tr>
                             {% endfor %}
@@ -105,32 +90,26 @@
             </div>
         </div>
 
-        <div class="alert alert-success clearfix align-middle">
-            <h2 class="alert-heading">Enregistrer les modifications</h2>
-            <p>Si vous avez terminé vos modifications, vous pouvez les sauvegarder</p>
-            <button type="submit" class="btn btn-primary float-right">
-                <i class="fas fa-save"></i>
-                Enregistrer les modifications
-            </button>
-        </div>
-
         {{ form_end(form) }}
-    </div>
     </div>
 {% endblock %}
 {% block _annonce_images_widget %}
     {{ form_widget(form) }}
 {% endblock %}
 {% block _annonce_images_entry_row %}
-    {{ form_widget(form) }}
+    <div id="block_{{ id }}">
+        {{ form_widget(form) }}
+    </div>
 {% endblock %}
 {% block _annonce_images_entry_widget %}
-    <div class="row">
+    <div class="row align-items-center mb-3">
         <div class="col-4">
-            {{ form_widget(form.url) }}
+            {% if value %}
+                <img src="{{ value.url }}" alt="" class="img-fluid">
+            {% endif %}
         </div>
         <div class="col-6">
-            {{ form_widget(form.caption) }}
+            {{ form_row(form.caption) }}
         </div>
         <div class="col">
             <button type="button" data-action="delete" data-target="#block_{{ id }}" class="btn btn-danger">
@@ -142,4 +121,5 @@
 {% endblock %}
 
 {% block javascripts %}
+    <script src="/js/ad.js "></script>
 {% endblock %}

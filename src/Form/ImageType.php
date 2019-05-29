@@ -3,30 +3,24 @@
 namespace App\Form;
 
 use App\Entity\Image;
-use Symfony\Component\Form\AbstractType;
+use App\Form\ApplicationType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ImageType extends AbstractType{
+class ImageType extends ApplicationType{
     public function buildForm(FormBuilderInterface $builder, array $options){
         $builder
             ->add(
                 'url',
-                UrlType::class,[
-                    'attr' => [
-                        'placeholder' => "URL de l'image"
-                    ]
-                ]
+                UrlType::class,
+                $this->getConfiguration("Url", "URL de l'image !")
             )
             ->add(
                 'caption',
-                TextType::class, [
-                    'attr' => [
-                        'placeholder' => "Titre de l'image"
-                    ]
-                ]
+                TextType::class,
+                $this->getConfiguration("Caption", "Titre de l'image !")
             )
         ;
     }
