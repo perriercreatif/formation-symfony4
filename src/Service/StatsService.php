@@ -39,11 +39,11 @@ class StatsService{
     public function getAdsStats($direction){
         return $this->manager->createQuery(
             'SELECT AVG(c.rating) as note, a.title, a.id, u.firstName, u.lastName, u.picture
-          FROM App\Entity\Comment c
-          JOIN c.ad a
-          JOIN a.author u
-          GROUP BY a
-          ORDER BY note ' . $direction
+              FROM App\Entity\Comment c
+              JOIN c.ad a
+              JOIN a.author u
+              GROUP BY a
+              ORDER BY note ' . $direction
         )
             ->setMaxResults(5)
             ->getResult();
