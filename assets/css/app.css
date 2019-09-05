@@ -6,18 +6,24 @@ div.container, div.container-fluid{
     background-color:#F6F6FF;
 }
 
-div.ad-title{
+div.ad-titles{
     padding:2em;
     background-size: cover;
     background-position: center center;
 }
 
-div.ad-title h1, div.ad-title{
+div.ad-titles h1, div.ad-titles{
     color:white;
     text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
 }
 
-div.ad-title .btn{
+div.ad-titles .btn{
+    margin-top: 2em;
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+
+div.ad-titles .btn{
     margin-top: 2em;
     font-size: 1.5em;
     line-height: 1.5em;
